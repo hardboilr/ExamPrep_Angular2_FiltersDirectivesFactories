@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Basic Programming</th>
+            <th>Advanced Programming</th>
+            <th>Database Intro</th>
+            <th>Average</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr ng-repeat="student in ctrl.getStudents()">
+            <td>{{student.name}}</td>
+            <td>{{student.grades[0].grade}}</td>
+            <td>{{student.grades[1].grade}}</td>
+            <td>{{student.grades[2].grade}}</td>
+            <td>{{student| averageGrade}}</td>
+        </tr>
+    </tbody>
+</table>
