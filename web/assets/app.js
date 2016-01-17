@@ -20,9 +20,6 @@ app.controller('ExamController', ['StudentFactory', 'RESTFactory', function (Stu
     }]);
 
 app.factory('RESTFactory', ['$http', function ($http) {
-        //maybe use ng-resource instead?
-        //http://weblogs.asp.net/dwahlin/using-an-angularjs-factory-to-interact-with-a-restful-service
-
         var urlBase = 'api/students';
 
         var getStudents = function () {
@@ -62,12 +59,12 @@ app.factory('StudentFactory', function () {
 });
 
 app.filter('averageGrade', function () {
-    return function (person) {
+    return function (student) {
         var sum = 0;
         var count = 0;
-        for (var i = 0; i < person.grades.length; i++) {
-            if (!isNaN(person.grades[i].grade)) { //if it's a number
-                sum += parseFloat(person.grades[i].grade);
+        for (var i = 0; i < student.grades.length; i++) {
+            if (!isNaN(student.grades[i].grade)) { //if it's a number
+                sum += parseFloat(student.grades[i].grade);
                 count++;
             }
         }
